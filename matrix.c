@@ -9,6 +9,11 @@ Matrix mat_new(int width, int height){
 	return mat;
 }
 
+void mat_delete(Matrix* mat){
+	free(&(mat->data));
+	free(mat);
+}
+
 void mat_mult_constant(Matrix* mat, float c){
 	for(int i = 0; i < mat->size; i++){
 		mat->data[i] *= c;
@@ -61,3 +66,13 @@ void mat_element_wise_product(Matrix* mat1, Matrix* mat2, Matrix* output){
 	}
 }
 
+void mat_dot(Matrix* mat1, Matrix* mat2, float output){
+	Matrix mat3;
+	float output = 0.0f;
+	mat_mult_matrix(mat1, mat2, &mat3);
+	for(int i = 0; i < mat3.size; i++){
+		output += mat3.data[i];
+	}
+	mat_delete(&mat3);
+	return output;
+}
