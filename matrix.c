@@ -1,4 +1,6 @@
 #include "matrix.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 Matrix mat_new(int width, int height){
 	Matrix mat;
