@@ -15,6 +15,10 @@ void mat_delete(Matrix* mat){
 }
 
 void mat_set(Matrix* mat, int x, int y, float value){
+	if((x > mat->width) || (y > mat->height)){
+		printf("Index out of bounds, cannot set value!\n Exiting...\n");
+		exit(EXIT_FAILURE);
+	}
 	mat->data[x + (y * mat->width)] = value;
 }
 
