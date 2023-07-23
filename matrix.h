@@ -5,7 +5,7 @@ typedef struct Matrix{
 	int height;
 } Matrix;
 
-Matrix* mat_new(int width, int height);
+Matrix mat_new(int width, int height);
 
 void mat_mult_constant(Matrix* mat, float c);
 
