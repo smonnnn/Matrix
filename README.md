@@ -1,5 +1,5 @@
 # Matrix
-A very simple library for floating point matrices.
+A simple library for floating point matrices.
 
 Currently supports:
 - Multiplying a matrix with either a constant or another matrix.
