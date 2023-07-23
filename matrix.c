@@ -49,7 +49,7 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 	}
 }
 
-void mat_hadamard_product(Matrix* mat1, Matrix* mat2, Matrix* output){
+void mat_element_wise_product(Matrix* mat1, Matrix* mat2, Matrix* output){
 	if((mat1->height != mat2->heigth) || (mat1->width != mat2->width)){
 		printf("The sizes of the matrices do not match!\nCannot compute the hadamard product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
@@ -60,3 +60,4 @@ void mat_hadamard_product(Matrix* mat1, Matrix* mat2, Matrix* output){
 		output[i] = mat1->data[i] * mat2->data[i];
 	}
 }
+
