@@ -14,6 +14,10 @@ void mat_delete(Matrix* mat){
 	free(mat);
 }
 
+void mat_set(Matrix* mat, int x, int y, float value){
+	mat->data[x + (y * mat->width)] = value;
+}
+
 void mat_mult_constant(Matrix* mat, float c){
 	for(int i = 0; i < mat->size; i++){
 		mat->data[i] *= c;
@@ -76,3 +80,4 @@ void mat_dot(Matrix* mat1, Matrix* mat2, float output){
 	mat_delete(&mat3);
 	return output;
 }
+

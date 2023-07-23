@@ -9,6 +9,8 @@ Matrix mat_new(int width, int height);
 
 void mat_delete(Matrix* mat);
 
+void mat_set(Matrix* mat, int x, int y);
+
 void mat_mult_constant(Matrix* mat, float c);
 
 void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output);
