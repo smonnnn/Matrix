@@ -11,6 +11,19 @@ Matrix mat_new(int width, int height){
 	return mat;
 }
 
+Matrix mat_new_identity(int width, int height){
+	if(width < height){
+		printf("Matrix width cannot be smaller than height!\nCannot create an identity matrix for this size. Exiting...");
+		exit(EXIT_FAILURE);
+	}
+
+	Matrix mat = mat_new(width, height);
+	for(int i = 0; i < width; i++){
+		mat_set(&mat, i, i, 1.0f);
+	}
+	return mat;
+}
+
 void mat_delete(Matrix* mat){
 	free(&(mat->data));
 	free(mat);
