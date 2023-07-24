@@ -19,7 +19,7 @@ Matrix mat_new_identity(int width, int height){
 
 	Matrix mat = mat_new(width, height);
 	for(int i = 0; i < width; i++){
-		mat_set(&mat, i, i, 1.0f);
+		mat.data[i + (i * width)] = 1.0f;
 	}
 	return mat;
 }
