@@ -35,8 +35,8 @@ void mat_print(Matrix* mat){
 }
 
 void mat_delete(Matrix* mat){
-	free(&(mat->data));
-	free(mat);
+	free(mat->data);
+	//free(mat);
 }
 
 void mat_set(Matrix* mat, int x, int y, float value){
@@ -108,4 +108,3 @@ void mat_dot(Matrix* mat1, Matrix* mat2, float* output){
 	}
 	mat_delete(&mat3);
 }
-
