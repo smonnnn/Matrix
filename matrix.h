@@ -11,7 +11,7 @@ Matrix mat_identity(int width, int height);
 
 void mat_delete(Matrix* mat);
 
-void mat_set(Matrix* mat, int x, int y);
+void mat_set(Matrix* mat, int x, int y, float value);
 
 void mat_mult_constant(Matrix* mat, float c);
 
