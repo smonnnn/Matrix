@@ -2,26 +2,23 @@
 #include <stdio.h>
 
 int main(){
-	Matrix mat1 = mat_new(3, 3);
-	Matrix mat2 = mat_new(3, 3);
+	float mat1_data[] = {
+		1, 2, 3, 
+		4, 5, 6, 
+		0, 0, 0
+	};
+	float mat2_data[] = {
+		10, 11, 0,
+		20, 21, 0, 
+		30, 31, 0
+	};
+	Matrix mat1 = mat_new_from_data(3, 3, mat1_data);
+	Matrix mat2 = mat_new_from_data(3, 3, mat2_data);
+
 	Matrix result_mat_mult;
 	Matrix result_element_wise_mult;
 	Matrix result_mat_add_mat;
 	float result_dot;
-
-	mat_set(&mat1, 0, 0, 1.0f);
-	mat_set(&mat1, 1, 0, 2.0f);
-	mat_set(&mat1, 2, 0, 3.0f);
-	mat_set(&mat1, 0, 1, 4.0f);
-	mat_set(&mat1, 1, 1, 5.0f);
-	mat_set(&mat1, 2, 1, 6.0f);
-
-	mat_set(&mat2, 0, 0, 10.0f);
-	mat_set(&mat2, 1, 0, 11.0f);
-	mat_set(&mat2, 0, 1, 20.0f);
-	mat_set(&mat2, 1, 1, 21.0f);
-	mat_set(&mat2, 0, 2, 30.0f);
-	mat_set(&mat2, 1, 2, 31.0f);
 
 	mat_mult_matrix(&mat1, &mat2, &result_mat_mult);
 	mat_dot(&mat1, &mat2, &result_dot);

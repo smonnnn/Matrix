@@ -11,6 +11,15 @@ Matrix mat_new(int width, int height){
 	return mat;
 }
 
+Matrix mat_new_from_data(int width, int height, float* data){
+	Matrix mat;
+	mat.width = width;
+	mat.height = height;
+	mat.size = width * height;
+	mat.data = data;
+	return mat;
+}
+
 Matrix mat_identity(int width, int height){
 	if(width < height){
 		printf("Matrix width cannot be smaller than height!\nCannot create an identity matrix for this size. Exiting...");
