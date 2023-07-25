@@ -24,6 +24,15 @@ Matrix mat_identity(int width, int height){
 	return mat;
 }
 
+void print_matrix(*Matrix mat){
+	for(int i = 0; i < mat->height; i++){
+		for(int j = 0; j < mat->width; j++){
+			printf("%.2f ", mat->data[j + (i * mat->width)]);
+		}
+		printf("\n");
+	}
+}
+
 void mat_delete(Matrix* mat){
 	free(&(mat->data));
 	free(mat);
