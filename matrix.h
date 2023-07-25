@@ -9,7 +9,7 @@ Matrix mat_new(int width, int height);
 
 Matrix mat_identity(int width, int height);
 
-void print_matrix(*Matrix mat);
+void mat_print(*Matrix mat);
 
 void mat_delete(Matrix* mat);
 
