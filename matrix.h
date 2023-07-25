@@ -9,7 +9,7 @@ Matrix mat_new(int width, int height);
 
 Matrix mat_identity(int width, int height);
 
-void mat_print(*Matrix mat);
+void mat_print(Matrix* mat);
 
 void mat_delete(Matrix* mat);
 
@@ -25,4 +25,4 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output);
 
 void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output);
 
-void mat_dot(Matrix* mat1, Matrix* mat2, float output);
+void mat_dot(Matrix* mat1, Matrix* mat2, float* output);
