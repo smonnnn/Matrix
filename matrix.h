@@ -7,6 +7,8 @@ typedef struct Matrix{
 
 Matrix mat_new(int width, int height);
 
+Matrix mat_identity(int width, int height);
+
 void mat_delete(Matrix* mat);
 
 void mat_set(Matrix* mat, int x, int y);

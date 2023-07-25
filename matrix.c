@@ -11,7 +11,7 @@ Matrix mat_new(int width, int height){
 	return mat;
 }
 
-Matrix mat_new_identity(int width, int height){
+Matrix mat_identity(int width, int height){
 	if(width < height){
 		printf("Matrix width cannot be smaller than height!\nCannot create an identity matrix for this size. Exiting...");
 		exit(EXIT_FAILURE);
