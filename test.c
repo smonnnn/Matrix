@@ -30,7 +30,7 @@ int main(){
 	printf("B:\n");
 	mat_print(&mat2);
 	printf("A x B = C:\n");
-	mat_print(&result_mat_mult);
+	mat_print(&result_mat_mult); //should be 140.00 146.00 320.00 335.00
 	printf("A dot B: %f\n", result_dot);
 
 
