@@ -1,5 +1,6 @@
 #include "matrix.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 	float mat1_data[] = {
@@ -43,11 +44,8 @@ int main(){
 	mat_mult_constant(&mat2, 2.0f);
 	mat_print(&mat2);
 
-	mat_delete(&mat1);
-	mat_delete(&mat2);
 	mat_delete(&result_mat_mult);
 	mat_delete(&result_element_wise_mult);
 	mat_delete(&result_mat_add_mat);
-
 	return 0;
 }
