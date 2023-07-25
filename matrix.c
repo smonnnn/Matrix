@@ -27,7 +27,7 @@ Matrix mat_identity(int width, int height){
 void mat_print(Matrix* mat){
 	for(int i = 0; i < mat->height; i++){
 		for(int j = 0; j < mat->width; j++){
-			printf("%.2f ", mat->data[j + (i * mat->width)]);
+			printf("%7.2f ", mat->data[j + (i * mat->width)]);
 		}
 		printf("\n");
 	}

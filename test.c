@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 int main(){
-	Matrix mat1 = mat_new(3, 2);
-	Matrix mat2 = mat_new(2, 3);
+	Matrix mat1 = mat_new(3, 3);
+	Matrix mat2 = mat_new(3, 3);
 	Matrix result_mat_mult;
+	Matrix result_element_wise_mult;
 	float result_dot;
 
 	mat_set(&mat1, 0, 0, 1.0f);
@@ -23,6 +24,7 @@ int main(){
 
 	mat_mult_matrix(&mat1, &mat2, &result_mat_mult);
 	mat_dot(&mat1, &mat2, &result_dot);
+	mat_element_wise_mult(&mat1, &mat2, &result_element_wise_mult);
 
 	printf("Matrix multiplication test:\n");
 	printf("A:\n");
@@ -31,9 +33,9 @@ int main(){
 	mat_print(&mat2);
 	printf("A x B = C:\n");
 	mat_print(&result_mat_mult); //should be 140.00 146.00 320.00 335.00
-	printf("A dot B: %f\n", result_dot);
-
-
+	printf("A dot B: %f\n-------------------------\n", result_dot);
+	printf("A element wise product B:\n");
+	mat_print(&result_element_wise_mult);
 
 	return 0;
 }
