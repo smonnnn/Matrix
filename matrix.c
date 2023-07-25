@@ -63,7 +63,7 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
 			for(int k = 0; k < mat1->width; k++){
-				output->data[i + (j * output->width)] += (mat1->data[k + (j * mat1->width)] * mat2->data[k + (i * mat1->width)]);
+				output->data[i + (j * output->width)] += (mat1->data[k + (j * mat1->width)] * mat2->data[i + (k * mat2->width)]);
 			}
 		}
 	}
