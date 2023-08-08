@@ -11,6 +11,7 @@ if ! [ -d "$output_location"/libs ]; then
 fi
 
 for d in ${!dependencies[@]}; do
+	cd ./libs/"$d"
 	if [ -d "$output_location"/libs/"$d"/.git ]; then
 		git pull origin main
 	else
@@ -18,6 +19,7 @@ for d in ${!dependencies[@]}; do
 	fi
 	bash "$output_location"/libs/"$d"/compile.sh "$output_location"
 	cp -r "$output_location"/libs/**/*.h "$output_location"/libs/
+	cd "$output_location"
 done
 
 gcc $flags -c "$files" -o "$output_location"/libs/"$name".o
