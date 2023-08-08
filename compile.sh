@@ -1,6 +1,6 @@
 #!/bin/bash
 name="matrix"
-output_location=$(realpath $1)
+output_location=$(realpath "$1")
 flags=""
 files="matrix.c"
 
