@@ -19,7 +19,7 @@ for d in ${!dependencies[@]}; do
 	fi
 	bash "$output_location"/libs/"$d"/compile.sh "$output_location"
 	cp -r "$output_location"/libs/**/*.h "$output_location"/libs/
-	cd "$output_location"
+	cd ../../
 done
 
 gcc $flags -c "$files" -o "$output_location"/libs/"$name".o
