@@ -108,6 +108,12 @@ void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output){
 	}
 }
 
+void mat_apply_function(Matrix* mat, float (*function)(float)){
+	for(int i = 0; i < mat->size; i++){
+		mat->data[i] = (*function)(mat->data[i]);
+	}
+}
+
 void mat_dot(Matrix* mat1, Matrix* mat2, float* output){
 	Matrix mat3;
 	*output = 0.0f;

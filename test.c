@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+float add_one(float n){
+	return n + 1.0f;
+}
+
 int main(){
 	float mat1_data[] = {
 		1, 2, 3, 
@@ -43,6 +47,10 @@ int main(){
 	printf("B * 2:\n");
 	mat_mult_constant(&mat2, 2.0f);
 	mat_print(&mat2);
+
+	mat_apply_function(&mat1, &add_one);
+	printf("Apply a function using a pointer to mat1 (add_one).\n");
+	mat_print(&mat1);
 
 	mat_delete(&result_mat_mult);
 	mat_delete(&result_element_wise_mult);
