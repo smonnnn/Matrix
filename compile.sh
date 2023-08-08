@@ -12,11 +12,12 @@ fi
 
 for d in ${!dependencies[@]}; do
 	if [ -d "$output_location"/libs/"$d"/.git ]; then
+		cd ./libs/"$d"
 		git pull origin main
 	else
 		git clone ${dependencies[$d]} "$output_location"/libs/"$d"
+		cd ./libs/"$d"
 	fi
-	cd ./libs/"$d"
 	bash "$output_location"/libs/"$d"/compile.sh "$output_location"
 	cp -r "$output_location"/libs/**/*.h "$output_location"/libs/
 	cd ../../
