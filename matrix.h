@@ -27,6 +27,6 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output);
 
 void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output);
 
-void mat_apply_function(Matrix* mat, float (*function)(float));
+void mat_apply_function(Matrix* mat, Matrix* output, float (*function)(float));
 
 void mat_dot(Matrix* mat1, Matrix* mat2, float* output);
