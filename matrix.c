@@ -110,7 +110,7 @@ void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 
 void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output){
 	if((mat1->height != mat2->height) || (mat1->width != mat2->width)){
-		printf("The sizes of the matrices do not match!\nCannot compute the hadamard product of the two matrices, exiting...\n");
+		printf("The sizes of the matrices do not match!\nCannot compute the element wise product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
 	}
 
