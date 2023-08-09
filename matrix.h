@@ -25,6 +25,8 @@ void mat_add_constant(Matrix* mat, float c);
 
 void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output);
 
+void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output);
+
 void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output);
 
 void mat_apply_function(Matrix* mat, Matrix* output, float (*function)(float));
