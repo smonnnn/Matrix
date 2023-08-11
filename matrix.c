@@ -11,6 +11,17 @@ Matrix mat_new(int width, int height){
 	return mat;
 }
 
+Matrix mat_resize_unsafe(Matrix* mat, int width, int height){
+	mat->width = width;
+	mat->height = height;
+	mat->size = width * height;
+}
+
+Matrix mat_resize_safe(Matrix* mat, int width, int height){
+	mat_resize_unsafe(mat, width, height);
+	mat->data = realloc(mat->data, mat->size * sizeof(float));
+}
+
 Matrix mat_new_from_data(int width, int height, float* data){
 	Matrix mat;
 	mat.width = width;

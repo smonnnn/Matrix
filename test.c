@@ -48,7 +48,7 @@ int main(){
 	mat_mult_constant(&mat2, 2.0f);
 	mat_print(&mat2);
 
-	mat_apply_function(&mat1, &add_one);
+	mat_apply_function(&mat1, &mat1, &add_one);
 	printf("Apply a function using a pointer to mat1 (add_one).\n");
 	mat_print(&mat1);
 
