@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+	Output matrices get allocated if they are not the same as one of the input matrices.
+	Memory management is the responsibility of the function caller.
+
+*/
+
 Matrix mat_new(int width, int height){
 	Matrix mat;
 	mat.width = width;
@@ -80,9 +86,9 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 	}
 
 	if(output != mat1 && output != mat2){
-		*output = mat_new(mat1->width, mat1->height);
+		*output = mat_new(mat2->width, mat1->height);
 	}
-	
+
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
 			for(int k = 0; k < mat1->width; k++){
