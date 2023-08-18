@@ -79,7 +79,10 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	*output = mat_new(mat2->width, mat1->height);
+	if(output != mat1 && output != mat2){
+		*output = mat_new(mat1->width, mat1->height);
+	}
+	
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
 			for(int k = 0; k < mat1->width; k++){
@@ -101,7 +104,10 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	*output = mat_new(mat1->width, mat1->height);
+	if(output != mat1 && output != mat2){
+		*output = mat_new(mat1->width, mat1->height);
+	}
+
 	for(int i = 0; i < mat1->size; i++){
 		output->data[i] = mat1->data[i] + mat2->data[i];
 	}
@@ -113,7 +119,10 @@ void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	*output = mat_new(mat1->width, mat1->height);
+	if(output != mat1 && output != mat2){
+		*output = mat_new(mat1->width, mat1->height);
+	}
+
 	for(int i = 0; i < mat1->size; i++){
 		output->data[i] = mat1->data[i] - mat2->data[i];
 	}
@@ -124,8 +133,10 @@ void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output){
 		printf("The sizes of the matrices do not match!\nCannot compute the element wise product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
 	}
-
-	*output = mat_new(mat1->width, mat1->height);
+	if(output != mat1 && output != mat2){
+		*output = mat_new(mat1->width, mat1->height);
+	}
+	
 	for(int i = 0; i < mat1->size; i++){
 		output->data[i] = mat1->data[i] * mat2->data[i];
 	}
