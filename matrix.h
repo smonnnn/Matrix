@@ -9,9 +9,9 @@ Matrix mat_new(int width, int height);
 
 Matrix mat_new_from_data(int width, int height, float* data);
 
-Matrix mat_resize_unsafe(Matrix* mat, int width, int height);
+void mat_resize_unsafe(Matrix* mat, int width, int height);
 
-Matrix mat_resize_safe(Matrix* mat, int width, int height);
+void mat_resize_safe(Matrix* mat, int width, int height);
 
 Matrix mat_identity(int width, int height);
 
