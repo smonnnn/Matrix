@@ -66,12 +66,12 @@ void mat_delete(Matrix* mat){
 	//free(mat);
 }
 
-void mat_set(Matrix* mat, int x, int y, float value){
-	if((x >= mat->width) || (y >= mat->height)){
+void mat_set(Matrix* mat, int width, int height, float value){
+	if((width >= mat->width) || (height >= mat->height)){
 		printf("Index out of bounds, cannot set value!\n Exiting...\n");
 		exit(EXIT_FAILURE);
 	}
-	mat->data[x + (y * mat->width)] = value;
+	mat->data[width + (height * mat->width)] = value;
 }
 
 void mat_mult_constant(Matrix* mat, float c){

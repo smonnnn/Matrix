@@ -19,7 +19,7 @@ void mat_print(Matrix* mat);
 
 void mat_delete(Matrix* mat);
 
-void mat_set(Matrix* mat, int x, int y, float value);
+void mat_set(Matrix* mat, int width, int height, float value);
 
 void mat_mult_constant(Matrix* mat, float c);
 
