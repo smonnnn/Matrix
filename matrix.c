@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 /*
-	Output matrices get allocated if they are not the same as one of the input matrices.
+	Output matrices get allocated if they are not the same as one of the input matrices. 
+	!!! Make sure that you free memory of existing matrices if you reuse them. !!!
 	Memory management is the responsibility of the function caller.
 
 */
