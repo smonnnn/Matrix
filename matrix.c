@@ -86,8 +86,9 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	if(output != mat1 && output != mat2){
-		*output = mat_new(mat2->width, mat1->height);
+	if(output->width != mat1.width || output->height != mat2.height){
+		printf("Output matrix is not sized or initialised correctly!\nAllocating a new Matrix...\n");
+		*output = mat_new(mat1->width, mat2->height);
 	}
 
 	for(int i = 0; i < output->width; i++){
