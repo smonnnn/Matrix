@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <execinfo.h>
-#define DEBUG_MAT_MULT
 
 /*
 	Output matrices do not get allocated, please do this yourself using mat_new, mat_identity or mat_new_from_data. 
@@ -81,13 +80,6 @@ void mat_mult_constant(Matrix* mat, float c){
 }
 
 void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
-	#ifdef DEBUG_MAT_MULT
-		printf("Input 1:\n");
-		mat_print(mat1);
-		printf("Input 2:\n");
-		mat_print(mat2);
-	#endif
-
 	if(mat1->width != mat2->height){
 		printf("The first matrix's width does not match the second matrix's height!\nCannot compute the product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
@@ -100,10 +92,6 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 			}
 		}
 	}
-	#ifdef DEBUG_MAT_MULT
-	printf("Output:\n");
-	mat_print(output);
-	#endif
 }
 
 void mat_add_constant(Matrix* mat, float c){
