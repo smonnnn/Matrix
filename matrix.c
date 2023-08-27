@@ -3,10 +3,8 @@
 #include <stdlib.h>
 
 /*
-	Output matrices get allocated if they are not the same as one of the input matrices. 
-	!!! Make sure that you free memory of existing matrices if you reuse them. !!!
+	Output matrices do not get allocated, please do this yourself using mat_new, mat_identity or mat_new_from_data. 
 	Memory management is the responsibility of the function caller.
-
 */
 
 Matrix mat_new(int width, int height){
@@ -107,10 +105,6 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	if(output != mat1 && output != mat2){
-		*output = mat_new(mat1->width, mat1->height);
-	}
-
 	for(int i = 0; i < mat1->size; i++){
 		output->data[i] = mat1->data[i] + mat2->data[i];
 	}
@@ -122,10 +116,6 @@ void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	if(output != mat1 && output != mat2){
-		*output = mat_new(mat1->width, mat1->height);
-	}
-
 	for(int i = 0; i < mat1->size; i++){
 		output->data[i] = mat1->data[i] - mat2->data[i];
 	}
@@ -135,9 +125,6 @@ void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output){
 	if((mat1->height != mat2->height) || (mat1->width != mat2->width)){
 		printf("The sizes of the matrices do not match!\nCannot compute the element wise product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
-	}
-	if(output != mat1 && output != mat2){
-		*output = mat_new(mat1->width, mat1->height);
 	}
 	
 	for(int i = 0; i < mat1->size; i++){
@@ -155,7 +142,6 @@ void mat_dot(Matrix* mat1, Matrix* mat2, float* output){
 	Matrix mat3 = mat_new(mat1->width, mat2->height);
 	*output = 0.0f;
 	mat_mult_matrix(mat1, mat2, &mat3);
-	printf("1\n");
 	for(int i = 0; i < mat3.size; i++){
 		*output += mat3.data[i];
 	}
