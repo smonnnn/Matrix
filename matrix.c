@@ -86,11 +86,6 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	if(output->width != mat1.width || output->height != mat2.height){
-		printf("Output matrix is not sized or initialised correctly!\nAllocating a new Matrix...\n");
-		*output = mat_new(mat1->width, mat2->height);
-	}
-
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
 			for(int k = 0; k < mat1->width; k++){
@@ -157,11 +152,55 @@ void mat_apply_function(Matrix* mat, Matrix* output, float (*function)(float)){
 }
 
 void mat_dot(Matrix* mat1, Matrix* mat2, float* output){
-	Matrix mat3;
+	Matrix mat3 = mat_new(mat1->width, mat2->height);
 	*output = 0.0f;
 	mat_mult_matrix(mat1, mat2, &mat3);
+	printf("1\n");
 	for(int i = 0; i < mat3.size; i++){
 		*output += mat3.data[i];
 	}
 	mat_delete(&mat3);
+}
+
+//This function should only be used by the library itself (for now).
+void submat_of(Matrix* mat, int index, Matrix* output){
+	mat_resize_unsafe(output, mat->width - 1, mat->height - 1);
+
+	int mat_index = mat->width;
+	int output_index = 0;
+	for(int j = 0; j < output->height; j++){
+		for(int i = 0; i < mat->width; i++){
+			if(i == index) {
+				mat_index++;
+				continue;
+			}
+			output->data[output_index] = mat->data[mat_index];
+			mat_index++;
+			output_index++;
+		}
+	}
+	mat_print(output);
+}
+
+float mat_determinant(Matrix* mat){
+	if(mat->width != mat->height){
+		printf("Matrix is not square!\nCannot compute determinant. Exiting...");
+		exit(EXIT_FAILURE);
+	}
+
+	if(mat->size == 4){
+		return (mat->data[0] * mat->data[3]) - (mat->data[1] * mat->data[2]);
+	} else {
+		float output = 0.0f;
+		Matrix buffer = mat_new(mat->width - 1, mat->height - 1);
+		int sign = 1; 
+		for(int i = 0; i < mat->width; i++){
+			submat_of(mat, i, &buffer); 							//stupid memory copying heheheheee
+    		output += sign * mat->data[i] * mat_determinant(&buffer);
+    		sign *= -1;
+		}
+		mat_delete(&buffer);
+		return output;
+	}
+	return 0.0f;
 }
