@@ -101,7 +101,7 @@ void mat_add_constant(Matrix* mat, float c){
 }
 
 void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
-	if((mat1->height != mat2->height) || (mat1->width != mat2->width)){
+	if(mat1->size != mat2->size){
 		printf("The sizes of the matrices do not match!\nCannot compute the sum of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
 	}
@@ -112,7 +112,7 @@ void mat_add_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 }
 
 void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
-	if((mat1->height != mat2->height) || (mat1->width != mat2->width)){
+	if(mat1->size != mat2->size){
 		printf("The sizes of the matrices do not match!\nCannot compute the sum of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
 	}
@@ -123,7 +123,7 @@ void mat_subtract_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 }
 
 void mat_element_wise_mult(Matrix* mat1, Matrix* mat2, Matrix* output){
-	if((mat1->height != mat2->height) || (mat1->width != mat2->width)){
+	if(mat1->size != mat2->size){
 		printf("The sizes of the matrices do not match!\nCannot compute the element wise product of the two matrices, exiting...\n");
 		exit(EXIT_FAILURE);
 	}
