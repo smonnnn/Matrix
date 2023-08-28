@@ -97,6 +97,10 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
+	for(int i = 0; i < output->size; i++){
+		output->data[i] = 0;
+	}
+
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
 			for(int k = 0; k < mat1->width; k++){
