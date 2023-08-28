@@ -61,8 +61,13 @@ int main(){
 	printf("Apply a function using a pointer to mat1 (add_one).\n");
 	mat_print(&mat1);
 
+	Matrix random = mat_new_random_10(3, 3);
+	printf("Randomly filled matrix with values between 0 and 1:\n");
+	mat_print(&random);
+
 	mat_delete(&result_mat_mult);
 	mat_delete(&result_element_wise_mult);
 	mat_delete(&result_mat_add_mat);
+	mat_delete(&random);
 	return 0;
 }

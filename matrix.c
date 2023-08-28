@@ -8,12 +8,24 @@
 	Memory management is the responsibility of the function caller.
 */
 
+float rand_01(){
+    return rand() / ((double) RAND_MAX);
+}
+
 Matrix mat_new(int width, int height){
 	Matrix mat;
 	mat.width = width;
 	mat.height = height;
 	mat.size = width * height;
 	mat.data = calloc(mat.size, sizeof(float));
+	return mat;
+}
+
+Matrix mat_new_random_10(int width, int height){
+	Matrix mat = mat_new(width, height);
+	for(int i = 0; i < mat.size; i++){
+		mat.data[i] = rand_01();
+	}
 	return mat;
 }
 
