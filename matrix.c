@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <execinfo.h>
-
+#include <string.h>
 /*
 	Output matrices do not get allocated, please do this yourself using mat_new, mat_identity or mat_new_from_data. 
 	Memory management is the responsibility of the function caller.
@@ -97,9 +97,7 @@ void mat_mult_matrix(Matrix* mat1, Matrix* mat2, Matrix* output){
 		exit(EXIT_FAILURE);
 	}
 
-	for(int i = 0; i < output->size; i++){
-		output->data[i] = 0;
-	}
+	memset(output->data, 0, output->size * sizeof(float));
 
 	for(int i = 0; i < output->width; i++){
 		for(int j = 0; j < output->height; j++){
