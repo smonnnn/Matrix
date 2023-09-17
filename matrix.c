@@ -101,7 +101,8 @@ void mat_transpose(Matrix* mat){
 		int temp = mat->width;
 		mat->width = mat->height;
 		mat->height = temp;
-		mat->data = t;
+		memcpy(mat->data, t, mat->size * sizeof(float));
+		free(t);
 	}
 }
 
