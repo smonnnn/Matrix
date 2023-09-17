@@ -85,6 +85,26 @@ void mat_set(Matrix* mat, int width, int height, float value){
 	mat->data[width + (height * mat->width)] = value;
 }
 
+void mat_transpose(Matrix* mat){
+	if(mat->width == 1 || mat->height == 1){
+		int temp = mat->width;
+		mat->width = mat->height;
+		mat->height = temp;
+	} 
+	else{
+		float* t = malloc(mat->size * sizeof(float));
+		for(int i = 0; i < mat->width; i++){
+			for(int j = 0; j < mat->height; j++){
+				t[j + (i * mat->height)] = mat->data[i + (j * mat->width)]; //This memory access pattern sucks.
+			}
+		}
+		int temp = mat->width;
+		mat->width = mat->height;
+		mat->height = temp;
+		mat->data = t;
+	}
+}
+
 void mat_mult_constant(Matrix* mat, float c){
 	for(int i = 0; i < mat->size; i++){
 		mat->data[i] *= c;

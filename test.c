@@ -65,6 +65,10 @@ int main(){
 	printf("Randomly filled matrix with values between 0 and 1:\n");
 	mat_print(&random);
 
+	mat_transpose(&mat1);
+	printf("Transpose matrix of A:\n");
+	mat_print(&mat1);
+
 	mat_delete(&result_mat_mult);
 	mat_delete(&result_element_wise_mult);
 	mat_delete(&result_mat_add_mat);
